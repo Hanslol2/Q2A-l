@@ -1,0 +1,12 @@
+{
+  "name": "Royal Minimal",
+  "uri": "http://store.q2amarket.com/q2a-premium-themes/royal-minimal",
+  "description": "Clean and light weight theme with great readability and theme options",
+  "version": "1.2.1",
+  "date": "2016-02-27",
+  "author": "Q2A Market",
+  "author_uri": "http://www.q2amarket.com",
+  "license": "GPLv2",
+  "min_q2a": "1.7",
+  "update_uri" : "http://q2amarket.com/meta/update/themes/royal-minimal/metadata.json"
+}
