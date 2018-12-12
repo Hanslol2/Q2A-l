@@ -1,0 +1,530 @@
+/* --- embeding fonts --- */
+@font-face
+	font-family: 'openSansLight'
+	src: url('fonts/OpenSans-Light-webfont.eot')
+	src: url('fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/OpenSans-Light-webfont.woff') format('woff'), url('fonts/OpenSans-Light-webfont.ttf') format('truetype'), url('fonts/OpenSans-Light-webfont.svg#open_sanslight') format('svg')
+	font-weight: normal
+	font-style: normal
+
+
+/* --- [ global body css ] --- */
+*
+	+box-sizing(border-box)
+
+body,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea,button,
+	font-family: $default_fonts
+	+adjust-font-size-to($font_m)
+
+h1,.qa-q-item-title
+	+adjust-font-size-to(30px)
+
+h2
+	/*font-size: em($font_l, $font_m)*/
+	+adjust-font-size-to(20px)
+
+h3
+	font-size: em($font_d, $font_m)
+
+h4
+	+adjust-font-size-to(30px)
+
+ul
+	ul
+		margin: em(8px, $font_m) 0 em(8px, $font_m) em(20px, $font_m)
+
+table
+	width: 100%
+
+	tr
+		td
+			padding: em(5px, $font_m)
+
+
+img
+	max-width: 100%
+	height: auto
+	vertical-align: bottom
+
+b,strong
+	font-weight: 700
+
+code,samp,kbd
+	font-family: "Courier New", Courier, monospace, sans-serif
+	text-align: left
+	color: #555
+
+pre
+	background: $light_hover
+	padding: 0.1em 0.5em 0.3em 0.7em
+	border-left: 11px solid $heading_bg
+	margin: 1.7em 0 1.7em 0.3em
+	overflow: auto
+	width: 98%
+
+	code
+		background: $default_h
+		line-height: 1.6em
+		font-size: 14px
+
+/* target IE7 and IE6 */
+*
+	&:first-child
+		&+html
+			pre
+				padding-bottom: 2em
+				overflow-y: hidden
+				overflow: visible
+				overflow-x: auto 
+
+* 
+	html
+		pre 
+			padding-bottom: 2em
+			overflow: visible
+			overflow-x: auto
+			
+/* --- [ common css ] --- */
+
+
+/* layout css */
+.qa-logo
+	font-size: em($font_x, $font_m)
+
+	a
+		&:hover
+			text-decoration: none
+			color: none
+
+#qa-topbar-group,.qa-layout-wrapper
+	+clearfix
+
+/* --- [ qa-main ] --- */
+.qa-main
+	h1
+		&:first-of-type
+			margin-bottom: em(6px, $font_m)
+			color: #666
+			+clearfix
+
+			.qa-rss-icon
+				float: right
+				color: #666
+
+				&:hover
+					color: $link_hover
+
+	
+
+/* --- [ q-list-elements ] --- */
+.qa-q-list-item
+	padding: em(15px, $font_m) 0
+	+clearfix
+
+.qa-q-item-title
+	line-height: em(36px, 30px)
+	margin: 0 em(32px, $font_m) em(6px, $font_m) 0
+
+.qa-q-item-tag-item,.qa-q-view-tag-item
+	display: inline-block
+
+/* vote box counter */
+
+/* --- [ question view page css ] --- */
+h2
+	&#a_list_title
+		font-size: em($font_x, $font_m)
+		border-bottom: 3px solid #ccc
+		line-height: em($font_xl, $font_m)
+		margin-top: em(40px, $font_m)
+
+.qa-widget-main
+	h2
+		font-size: em($font_x, $font_m)
+		border-bottom: 3px solid #ccc
+		line-height: em($font_xl, $font_m)
+		margin: em(40px, $font_m) 0 em(20px, $font_m)
+
+
+/* q-list meta and tag */
+.qa-q-item-avatar-meta
+	line-height: normal
+	padding: em(5px, $font_m) 0
+
+.qa-q-item-avatar
+	position: absolute
+	top: 0
+	right: 0
+
+.qa-q-item-meta
+	font-size: em(12px, $font_m)
+	font-style: italic
+	line-height: normal
+
+
+/* pagination */
+.qa-page-links
+	margin: 20px 0
+
+.qa-page-links-label
+	display: none
+
+ul
+	&.qa-page-links-list
+
+		border-radius: 4px
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05)
+		display: inline-block
+		margin-bottom: 0
+		margin-left: 0
+
+		li
+			&.qa-page-links-item
+
+				display: block
+				float: left
+				
+				.qa-page-link,.qa-page-selected,.qa-page-next,.qa-page-prev
+					background-color: $white
+					border-color: #ddd				
+					border-style: solid
+					border-width: 1px 1px 1px 0
+					line-height: 20px
+					padding: 4px 12px
+					text-decoration: none
+				
+					&:hover
+						background: #f5f5f5
+
+				.qa-page-selected
+					background: #f5f5f5
+
+				.qa-page-prev
+					border-width: 1px
+
+			&:first-child
+				a,.qa-page-selected
+					border-radius: 4px 0 0 4px
+					border-width: 1px
+
+			&:last-child
+				a,.qa-page-selected
+					border-radius: 0 4px 4px 0
+
+
+/* --- [ qa-sidepanel ] --- */
+.q2am-ask-side
+	width: 100%
+	padding: em(10px, $font_m) em(5px, $font_m)
+	margin: 0 0 em(20px, $font_m) 0
+	display: block
+	font-size: em($font_l, $font_m)
+	text-align: center
+
+.qa-sidepanel
+	
+	/* widget heading */
+	h2,h2[style]	
+		font-size: em($font_l, $font_m)
+		padding: em(8px, $font_m) em(12px, $font_m) !important
+		margin-bottom: em(8px, $font_m) !important
+
+	/* all list items */
+	ul
+		>li
+			margin: 0 0 em(3px, $font_m) 0
+			display: block
+			padding: em(5px, $font_m) em(10px, $font_m)
+
+			>a
+							
+
+
+		&.qa-nav-cat-list
+			&.qa-nav-cat-list-1
+
+				>li
+					padding: em(5px, $font_m) em(10px, $font_m)
+					display: block
+
+					a
+						padding: 0
+						display: inline-block
+
+	
+	/* activity count widget */
+	.qa-activity-count
+		p
+			margin: 0 0 em(3px, $font_m) 0
+			padding: em(5px, $font_m) em(10px, $font_m)
+			display: block
+
+			.qa-activity-count-data
+				font-weight: 700
+
+	/* rss feed sidebar widget */
+	.qa-feed
+		.qa-feed-link
+			margin: 0 0 em(3px, $font_m) 0
+			padding: em(5px, $font_m) em(10px, $font_m)
+			display: block
+
+			&:after
+				font-family: "fontello"
+				font-style: normal
+				font-weight: normal
+				speak: none 
+				display: inline-block
+				text-decoration: inherit
+				width: 1em
+				margin-right: .2em
+				text-align: center
+				font-variant: normal
+				text-transform: none
+				line-height: inherit
+				float: right
+				margin-left: .2em
+				content: '\e80a'
+
+	/* sidebar (welcome box) */
+	.qa-sidebar,.qa-widget-side,.qa-nav-cat-list,.qa-feed
+		margin: 0 0 em(30px, $font_m)
+
+	.qa-sidebar
+		padding: em(16px, $font_m)		
+
+	/* tag could widget */
+	.qa-widget-side
+		>div
+			>a
+				margin: 0 em(6px, $font_m) em(6px, $font_m) 0
+				padding: em(3px, $font_m) em(4px, $font_m)			
+				line-height: em(20px, $font_m)			
+				display: inline-block
+
+/* askbox widget */
+.qa-ask-box
+	margin-bottom: em(25px, $font_m)
+
+
+/* ---[ user, tags and categories css ] --- */
+.qa-part-ranking,.qa-part-ranking
+	min-width: $xs
+	overflow-y: auto
+
+/* user page */
+table
+	&.qa-top-users-table
+		tr
+			td
+				&.qa-top-users-label
+
+					.qa-avatar-link
+						display: inline-block
+						float: left
+						margin-right: em(10px, $font_m)
+
+					.qa-user-link
+						float: left
+
+				&.qa-top-users-score
+					text-align: right
+
+				&.qa-top-users-spacer
+
+/* category page */
+.qa-part-nav-list
+
+	ul
+		&.qa-browse-cat-list
+
+			&.qa-browse-cat-list-1
+
+				li
+
+					.qa-browse-cat-note
+						font-size: $font_s
+						font-style: italic
+
+					ul
+						margin: em(20px, $font_m)
+
+						li
+							width: auto
+							float: none
+							background: none
+							border: none
+							margin: 0
+							padding: 0
+
+				+min-breakpoint(sm)
+					li
+						width: 49%
+						float: left
+						background: #f8f8f8
+						border: 1px solid #eee
+						margin: 1%
+						padding: em(5px, $font_m)
+
+						&:nth-child(2n+1)
+							margin-left: 0
+
+						&:nth-child(2n+2)
+							margin-right: 0
+
+				+max-breakpoint(sm)
+					li
+						width: 100%
+						float: none
+						background: #f8f8f8
+						border: 1px solid #eee
+						margin: em(5px, $font_m) 0
+						padding: em(5px, $font_m)
+
+
+
+/* ---[ additional css ] --- */
+.qa-suggest-next
+	padding: em(5px, $font_m) em(10px, $font_m)
+	margin: em(20px, $font_m) 0
+	background: $light_hover
+	text-align: center
+	border: 1px solid $default_h
+
+
+.qa-q-favorited .qa-q-item-title a, .qa-tag-favorited, .qa-tag-favorited:hover, .qa-cat-favorited, .qa-user-favorited, .qa-nav-cat-favorited, .qa-browse-cat-favorited
+	background-image: url(images/favorite-icon-15x15.png)
+	background-repeat: no-repeat
+
+.qa-cat-parent-favorited
+	background-image: url(images/favorite-light-icon-15x15.png)
+	background-repeat: no-repeat
+
+.qa-q-favorited .qa-q-item-title a, .qa-nav-cat-favorited, .qa-browse-cat-favorited,.qa-tag-favorited,.qa-cat-favorited,.qa-cat-parent-favorited
+	background-position: left center
+	padding-left: 18px !important
+
+
+.qa-favorite-button,.qa-unfavorite-button
+	background: url(images/favorite.png) no-repeat
+	border: 0
+	height: 24px
+	width: 24px
+
+.qa-favorite-button
+	background-position: 0 -24px
+
+	&:hover
+		background-position: 0 0
+
+.qa-unfavorite-button
+	background-position: 0 -48px
+
+	&:hover
+		background-position: 0 0
+
+
+/* ----------------------------------------------------------- */
+/* --- [ question view css including answer and comment ] --- */
+
+.qa-template-question 
+
+.qa-q-view
+	
+	.qa-q-view-content
+		img
+			max-width: 100%
+			height: auto
+			vertical-align: bottom
+
+
+/* widget */
+.qa-widget-main
+	.qa-q-item-main
+		.qa-view-count
+			display: none
+
+
+.qa-waiting
+	background: url(images/loderbar.gif) no-repeat center
+	width: 26px
+	height: 8px
+	display: inline-block
+	font-size: 0
+	margin: 0 0 0 4px
+	vertical-align: middle
+
+.qa-favoriting,.qa-a-selection
+	.qa-waiting
+		position: absolute 
+		padding: 0
+		left: 50%
+		top: 50%
+		margin: -4px 0 0 -13px
+
+
+.qa-search
+	margin-bottom: em(30px, $font_m)
+
+	.qa-search-field
+		width: 100%
+		margin: 0 -40px 0 0
+		padding-right: 40px
+		vertical-align: bottom
+
+	.qa-search-button
+		background: url(images/search-icon.png) no-repeat center
+		width: 36px
+		height: 36px
+		text-indent: 9999px
+
+		&:hover
+			background: url(images/search-icon.png) no-repeat center
+
+
+/* separate vote counter */
+.qa-vote-count-updown
+
+	.qa-upvote-count
+		text-align: center
+
+		display: block
+
+		.qa-upvote-count-data
+			display: block
+			line-height: em(16px, $font_m)
+			font-size: em(16px, $font_m)
+
+		.qa-upvote-count-pad
+			display: block
+			font-size: em(9px, $font_m)
+			line-height: em(12px, $font_m)
+
+
+	.qa-downvote-count
+		text-align: center
+
+		.qa-downvote-count-data
+			display: block
+			line-height: em(16px, $font_m)
+			font-size: em(16px, $font_m)
+
+		.qa-downvote-count-pad
+			display: block
+			font-size: em(9px, $font_m)
+			line-height: em(12px, $font_m)

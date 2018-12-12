@@ -373,7 +373,10 @@ function qa_page_q_edit_q_form(&$qa_content, $question, $in, $errors, $completet
 	} else
 		unset($form['fields']['content']);
 
-	if (qa_using_categories() && count($categories) && $question['retagcatable']) {
+	//loolex---start
+	//if (qa_using_categories() && count($categories) && $question['retagcatable']) {
+	if (qa_using_categories() && count($categories) && $question['retagcatable'] && $question['recatable']) {
+	//loolex---end
 		qa_set_up_category_field($qa_content, $form['fields']['category'], 'q_category', $categories,
 			isset($in['categoryid']) ? $in['categoryid'] : $question['categoryid'],
 			qa_opt('allow_no_category') || !isset($question['categoryid']), qa_opt('allow_no_sub_category'));
@@ -426,13 +429,22 @@ function qa_page_q_edit_q_submit($question, $answers, $commentsfollows, $closepo
 		$in['extra'] = qa_opt('extra_field_active') ? qa_post_text('q_extra') : null;
 	}
 
-	if ($question['retagcatable']) {
-		if (qa_using_tags())
-			$in['tags'] = qa_get_tags_field_value('q_tags');
+		if ($question['retagcatable']) {
+			if (qa_using_tags())
+				$in['tags'] = qa_get_tags_field_value('q_tags');
+			//loolex---start
+			/*
+			if (qa_using_categories())
+				$in['categoryid'] = qa_get_category_field_value('q_category');
+			*/
+			if($rules['recatable'] == true){
+				if (qa_using_categories())
+				$in['categoryid'] = qa_get_category_field_value('q_category');
+			}
+			//loolex---end
+		}
+	
 
-		if (qa_using_categories())
-			$in['categoryid'] = qa_get_category_field_value('q_category');
-	}
 
 	if (array_key_exists('categoryid', $in)) { // need to check if we can move it to that category, and if we need moderation
 		$categories = qa_db_select_with_pending(qa_db_category_nav_selectspec($in['categoryid'], true));

@@ -1,0 +1,264 @@
+@import compass
+@import components/_variables-green, components/_mixins
+
+/* --- [ color CSS ] --- */
+::selection
+	background: $text_bg
+	color: $text_sel
+
+::-moz-selection
+	background: $text_bg
+	color: $text_sel
+
+body
+	background: $body_bg
+	color: $body_text_color
+
+a
+	color: $link
+	text-decoration: none
+
+	&:visited
+		color: $link
+		text-decoration: none
+
+	&:hover,&:focus
+		color: $link_hover
+		text-decoration: underline
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea,
+select
+	background-color: $white
+	border-color: $border
+	+box-shadow(0 1px 1px rgba(0, 0, 0, 0.075) inset)	
+
+	&:focus
+		border-color: rgba(82, 168, 236, 0.8)
+		+box-shadow(0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6))
+
+.qa-form-tall-button,.qa-form-tall-button-reset,.qa-search-button,.qa-form-wide-button-reset,.qa-form-wide-button-showdefaults,.qa-form-basic-button,.qa-form-wide-button
+	+default-button
+
+	&:hover,&:focus
+		+default-button-hover
+
+.qa-form-tall-button-save,.q2am-ask-side,.qa-form-wide-button-save,.qa-form-wide-button-saverecalc,.qa-form-wide-button-change,.qa-form-wide-button-setbonus,.qa-form-tall-button-ask,.qa-form-tall-button-answer,.qa-form-tall-button-comment
+	+success-button
+
+	&:hover,&:focus
+		+success-button-hover
+
+.qa-template-admin
+
+	table
+		tr 
+			&:hover
+				background: $light_hover
+
+
+/* layout colors */
+#qa-top-bar
+	background: $heading_bg
+	color: $white
+
+	a
+		color: $white
+
+.qa-layout-wrapper
+	/*background-color: $light_hover*/
+
+/* --- [ qa-main ] --- */
+
+/* --- [ q-list-elements ] --- */
+.qa-q-list-item
+	border-bottom: 1px solid #eee
+
+.qa-q-item-stats
+
+/* vote box */
+// .qa-voting,.qa-a-count,.qa-view-count
+// 	background: #BFBFBF
+// 	color: $white
+
+.qa-vote-first-button,.qa-vote-second-button,.qa-vote-one-button
+	background: transparent
+	border: none
+	text-indent: -999px
+
+.qa-vote-up-button,.qa-vote-down-button,.qa-voted-up-button,.qa-voted-down-button,.qa-vote-up-disabled,.qa-vote-down-disabled
+	background: url(images/vote-arrows.png) no-repeat
+
+.qa-vote-up-button,.qa-voted-up-button,.qa-vote-up-disabled
+	background-position: left top
+
+	&:hover
+		background-position: left bottom		
+
+.qa-vote-down-button,.qa-voted-down-button,.qa-vote-down-disabled
+	background-position: right top
+
+	&:hover
+		background-position: right bottom
+
+.qa-vote-up-disabled
+	background-position: left top
+
+	&:hover
+		background-position: left top		
+
+.qa-vote-down-disabled
+	background-position: right top
+
+	&:hover
+		background-position: right top
+
+
+.qa-a-count-zero
+	background: $red
+	border-color: $red_border
+
+.qa-a-count-selected
+	background: $selected
+	border-color: $selected_border
+
+/* q-list meta and tag */
+.qa-q-item-meta
+	color: #A3A3A3
+
+	a
+		color: #A3A3A3
+		text-decoration: underline
+
+		&:hover
+			color: $body_text_color
+
+.qa-tag-link
+	display: inline-block
+	background-color: $tag_green
+	border: 1px solid $tab_border
+	color: $tag_color
+	margin-bottom: 5px
+	margin-right: 5px
+	padding: 2px 5px
+	text-decoration: none
+	font-size: em(11px, $font_m)
+	font-weight: 700
+
+	&:visited
+		color: $tag_color !important
+
+	&:hover
+		background-color: $tag_hover
+		color: $tag_color !important
+		text-decoration: none
+
+.qa-q-view-tags
+	margin-top: em(20px, $font_m)
+
+.qa-template-ask
+	table
+		tr
+			border: none
+	.qa-tag-link
+		font-size: em(14px, $font_m)
+
+/* --- [ qa-sidepanel ] --- */
+.q2am-ask-side
+	color: $white !important
+
+.qa-sidepanel
+
+	h2
+		background: $heading_bg
+		color: $white
+
+	a
+		color: $widget_link
+
+		&.q2am-ask-side
+			color: $white
+
+	ul
+		>li
+			border-top: em(1px, $font_m) solid $white
+			background-color: $widget_bg
+
+			&:hover,&:focus,&:active
+				background-color: $border
+
+		&.qa-nav-cat-list
+			&.qa-nav-cat-list-1
+
+				li
+					background-color: $widget_bg
+
+					&:hover,&:focus,&:active
+						background-color: $border
+
+					li
+						border: none
+
+	/* activity count widget */
+	.qa-activity-count,.qa-feed
+		p,.qa-feed-link
+			background: $widget_bg
+			border-top: em(1px, $font_m) solid $white
+
+			&:hover
+				background: $border
+
+	/* sidebar (welcome box) */
+	.qa-sidebar
+		background: $widget_bg
+
+	/* tag could widget */
+	.qa-widget-side
+		>div
+			>a
+				background-color: $white
+				border: 1px solid $widget_bg
+
+				&:hover
+					background: $widget_bg
+
+/* askbox widget */
+.qa-ask-box
+	background: $heading_bg
+	color: $white
+
+
+/* -- [ forms and errors ] --- */
+.qa-form-tall-error,.qa-error,.qa-form-tall-ok,.qa-form-wide-ok
+	padding: em(5px, $font_m) em(10px, $font_m)
+
+.qa-form-tall-error,.qa-error
+	background: #FFEAEA
+	color: $red_dark
+	border: 1px solid #FCC4C4
+
+.qa-form-tall-ok,.qa-form-wide-ok
+	background: $success
+	color: $white
+	border: 1px solid $success_border
+
+
+#sidepanelpull
+	color: #fff
+	background: $blue_dark
+	border-top: 2px solid $blue_light
+	border-bottom: 2px solid $heading_bg

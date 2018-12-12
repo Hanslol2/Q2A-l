@@ -1742,7 +1742,8 @@ function qa_get_tags_field_value($fieldname)
  * @param null $excludecategoryid
  */
 function qa_set_up_category_field(&$qa_content, &$field, $fieldname, $navcategories, $categoryid, $allownone, $allownosub, $maxdepth = null, $excludecategoryid = null)
-{
+{	
+
 	$pathcategories = qa_category_path($navcategories, $categoryid);
 
 	$startpath = '';
@@ -1762,7 +1763,7 @@ function qa_set_up_category_field(&$qa_content, &$field, $fieldname, $navcategor
 	$qa_content['script_var']['qa_cat_maxdepth'] = $maxdepth;
 
 	$field['type'] = 'select';
-	$field['tags'] = sprintf('name="%s_0" id="%s_0" onchange="qa_category_select(%s);"', $fieldname, $fieldname, qa_js($fieldname));
+	$field['tags'] = sprintf('name="%s_0" class="category_field" id="%s_0" onchange="qa_category_select(%s);"', $fieldname, $fieldname, qa_js($fieldname));
 	$field['options'] = array();
 
 	// create the menu that will be shown if Javascript is disabled
@@ -1885,7 +1886,10 @@ function qa_set_up_notify_fields(&$qa_content, &$fields, $basetype, $login_email
 	$fields['notify'] = array(
 		'tags' => 'name="' . $fieldprefix . 'notify"',
 		'type' => 'checkbox',
-		'value' => qa_html($innotify),
+		//loolex---start
+		//'value' => qa_html($innotify),
+		'value' => qa_html(0),
+		//loolex---end
 	);
 
 	switch ($basetype) {

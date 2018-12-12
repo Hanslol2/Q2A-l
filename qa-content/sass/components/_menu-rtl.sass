@@ -1,0 +1,215 @@
+/* --- [ all size screen ] --- */
+ul
+	&.q2am-nav-user-side-list
+
+		li
+			&.q2am-nav-user-side
+				+clearfix
+
+				a
+
+				&.qa-user-info-item
+					line-height: em(32px, $font_m)
+					background: $widget_bg					
+
+		.qa-logged-in-avatar
+
+			float: right
+			display: block
+			margin: em(2px, $font_m) em(2px, $font_m) em(2px, $font_m) em(5px, $font_m)
+
+		.qa-logged-in
+			display: inline-block
+
+			.qa-user-link
+				color: $widget_link
+				font-weight: 700
+
+		.qa-logged-in-points
+			display: inline-block
+
+
+/* --- [ < medium screen = small screen] --- */
++max-breakpoint(md) /* below md screen */
+
+	/* --- [ off canvace menu ] --- */
+	.qa-spmenu
+		/*background: #47a3da*/
+		background: #2a2a2a
+		position: fixed
+
+		a
+			display: block
+			color: $white
+			font-size: em($font_l)
+			font-weight: 300
+			text-decoration: none
+
+			&:hover,&.qa-nav-main-selected,&.qa-nav-user-selected
+				background: #000
+
+			&:active
+				background: $body_text_color
+				color: $white
+
+		h3
+			font-size: em($font_x, $font_m)
+			display: block
+
+
+	/* Orientation-dependent styles for the content of the menu */
+
+	.qa-spmenu-vertical
+		width: 240px
+		height: 100%
+		top: 0
+		z-index: 1000
+		overflow-y: auto
+
+		a
+			border-bottom: 1px solid #333
+			padding: em(10px, $font_m) em($font_m, $font_m)
+
+	/* Vertical menu that slides from the left or right */
+
+	.qa-spmenu-left
+		right: -240px
+
+		&.qa-spmenu-open
+			right: 0px
+
+	.qa-spmenu-right
+		right: -240px
+
+		&.qa-spmenu-open
+			right: 0px		
+
+	/* Push classes applied to the body */
+
+	.qa-spmenu-push
+		overflow-x: hidden
+		position: relative
+		right: 0
+
+	.qa-spmenu-push-toright
+		right: 240px
+
+	.qa-spmenu-push-toleft
+		right: -240px
+
+	/* Transitions */
+
+	.qa-spmenu,.qa-spmenu-push
+		-webkit-transition: all 0.2s ease-in-out
+		-moz-transition: all 0.2s ease-in-out
+		transition: all 0.2s ease-in-out
+
+	/* --- [ main nav menu ] --- */
+	.qa-nav-main-list
+
+	/* --- [ sub nav menu ] --- */
+	.sub-nav-top
+		display: none
+
+	.qa-nav-sub
+		margin-top: em(-20px, $font_m)
+		margin-bottom: em(20px, $font_m)
+
+		ul
+			&.qa-nav-sub-list
+				background: $light_hover
+				font-size: em($font_s, $font_m)
+				border-bottom: 1px solid $default_h
+				+clearfix
+
+				li
+					&.qa-nav-sub-item
+						float: right
+						width: 33.33%
+						text-align: center
+						
+						a
+							&.qa-nav-sub-link
+								padding: em(3px, $font_m) em(10px, $font_m)
+								display: block
+								background: $light_hover
+								border-width: 1px
+								border-style: solid
+								border-color: $white $border $border $white
+								color: $blue_dark
+
+								&:hover,&.qa-nav-sub-selected
+									text-decoration: none
+									background: $default_h
+									color: $default_text
+									+box-shadow(0 1px 1px 0 rgba(0,0,0,0.35) inset)
+
+
+/* --- [ > medium screen = medium + large screen ] --- */
++min-breakpoint(md) /* above md screen */
+	
+	/* --- [ off canvace menu ] --- */
+	.qa-spmenu
+
+		h3
+			display: none
+
+
+	/* --- [ main nav menu ] --- */
+	.qa-nav-main-list,.qa-nav-user
+		float: left
+
+		li
+			float: right
+
+			a
+				padding: em(10px, $font_m) em(15px, $font_m)
+				text-decoration: none
+
+				&:hover,&:active,&:focus,&.qa-nav-main-selected,&.qa-nav-user-selected
+					background: rgba(0,0,0,0.1)
+
+	/* --- [ sub nav menu ] --- */
+	.sub-nav-bottom
+		display: none
+
+	.qa-nav-sub
+		ul
+			&.qa-nav-sub-list
+				font-size: em($font_s, $font_m)
+				+clearfix
+
+				li
+					&.qa-nav-sub-item
+						float: right
+						
+						a
+							&.qa-nav-sub-link
+								padding: em(3px, $font_m) em(10px, $font_m)
+								display: block
+
+								&.qa-nav-sub-selected
+									text-decoration: underline
+
+					&.qa-nav-sub-admin-moderate
+						clear: right
+
+
+
+
+
+/* --- [ off canvace menu - vertical height ] --- */
+@media screen and (max-height: em(400px, $font_m))
+
+	.qa-spmenu-vertical
+		font-size: 90%
+		width: 190px
+
+	.qa-spmenu-left,.qa-spmenu-push-toleft
+		right: -190px
+
+	.qa-spmenu-right 
+		right: -190px
+
+	.qa-spmenu-push-toright
+		right: 190px

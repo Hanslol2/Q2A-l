@@ -166,10 +166,19 @@ if (qa_clicked('doask')) {
 		if (empty($errors)) {
 			$cookieid = isset($userid) ? qa_cookie_get() : qa_cookie_get_create(); // create a new cookie if necessary
 
+
+//loolex---start
+			include_once(dirname(QA_INCLUDE_DIR,2)."/Q2A/qa-plugin/loolex-custom/loolex-exc.php");
+			if(isset($_GET["cat"]) && isset($_GET["desc"])){
+				$in['categoryid'] = getCategoryID($_GET["cat"],$_GET["desc"]);
+			}		
+//loolex---end
+
+
 			$questionid = qa_question_create($followanswer, $userid, qa_get_logged_in_handle(), $cookieid,
 				$in['title'], $in['content'], $in['format'], $in['text'], isset($in['tags']) ? qa_tags_to_tagstring($in['tags']) : '',
 				$in['notify'], $in['email'], $in['categoryid'], $in['extra'], $in['queued'], $in['name']);
-
+				
 			qa_redirect(qa_q_request($questionid, $in['title'])); // our work is done here
 		}
 	}
@@ -256,7 +265,8 @@ if (isset($followanswer)) {
 
 	qa_array_insert($qa_content['form']['fields'], 'title', array('follows' => $field));
 }
-
+//loolex---start
+/*
 if (qa_using_categories() && count($categories)) {
 	$field = array(
 		'label' => qa_lang_html('question/q_category_label'),
@@ -270,7 +280,8 @@ if (qa_using_categories() && count($categories)) {
 
 	qa_array_insert($qa_content['form']['fields'], 'content', array('category' => $field));
 }
-
+*/
+//loolex---end
 if (qa_opt('extra_field_active')) {
 	$field = array(
 		'label' => qa_html(qa_opt('extra_field_prompt')),

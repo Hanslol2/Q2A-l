@@ -1,0 +1,363 @@
+/* ---- [ Form CSS ] --- */
+input
+	font-family: $default_fonts
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea,
+select
+	border-width: 1px
+	border-style: solid
+	+transition-property(border, box-shadow)	
+	+transition-duration(0.2s)
+	+transition-timing-function(ease-in)
+
+	&:focus
+		+transition-property(border, box-shadow)	
+		+transition-duration(0.2s)
+		+transition-timing-function(ease-in)	
+		outline: none
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"]
+	height: 36px
+	padding: 4px 6px
+	line-height: 28px
+
+input[type="submit"], button
+	font-size: $font_m
+	padding: 6px 12px
+	cursor: pointer
+	border-radius: 2px
+
+select
+	min-width: em(60px, $font_m)
+	height: 36px
+	padding: 7px 6px
+	line-height: 38px
+	cursor: pointer
+
+input[type="file"]
+	padding: 0
+	line-height: 38px
+	cursor: pointer
+
+textarea
+	padding: 4px 6px
+	line-height: normal
+
+
+/* --- [ q2a specific ] --- */
+/* table */
+table
+	tr
+		border-bottom: 1px solid #eee
+
+		td
+			&.qa-form-tall-label
+				padding: em(10px, $font_m) 0 em(2px, $font_m)
+				color: black
+
+			&.qa-form-tall-data
+				padding: em(2px, $font_m) 0 em(10px, $font_m)
+
+			&.qa-form-tall-buttons,&.qa-form-wide-buttons
+				padding: em(10px, $font_m) 0
+
+			&.qa-form-wide-label
+				padding: em(10px, $font_m) 0
+
+			&.qa-form-wide-data
+				padding: em(10px, $font_m) 0
+
+			&.qa-form-wide-spacer
+				margin: 0 0 em(50px, $font_m) 0
+				line-height: 1px
+				height: em(20px, $font_m)
+				font-size: 1px
+				border-bottom: 5px double #eee
+
+/* form elements */
+.qa-form-tall-text,.qa-form-wide-text
+	width: 100%
+
+.qa-form-tall-number,.qa-form-wide-number
+	width: em(80px, $font_m)
+
+.qa-form-tall-note
+	margin: 10px 0
+	color: #000
+	font-size: 12px
+	line-height: normal
+
+
+.qa-part-form-password
+	margin: em(30px, $font_m) 0
+
+
+
+/* ----------------------------------------------------------- */
+/* --- [ question view css including answer and comment ] --- */
+.qa-a-form,.qa-c-form
+	margin: em(14px, $font_m) 0
+
+	h2
+		&:first-of-type
+			margin: em(10px, $font_m) 0
+			padding-bottom: em(5px, $font_m)
+			border-bottom: 1px solid #ddd
+
+/* --- [ content action icon buttons css ] --- */
+/* overflow: visible for IE */
+.qa-form-light-button
+	background-color: #ddd
+	border: 1px solid #aaa
+	cursor: pointer
+	width: 18px
+	height: 18px
+	font-size: $font_s !important
+	text-align: center
+	margin-bottom: em(5px, $font_m)
+	overflow: visible
+	padding: em(3px, $font_m) em(6px, $font_m) !important
+	color: black
+	font-weight: 700
+	display: block
+	text-indent: -9999px
+	opacity: 0.15
+
+	&:hover
+		opacity: 0.5
+
+.qa-template-admin
+	.qa-form-light-button
+		display: inline
+		margin: em(5px, $font_m) 0
+
+.qa-form-light-button-edit,.qa-form-light-button-retagcat
+	background-image: url(images/icons/pen.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-flag
+	background-image: url(images/icons/flag.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-unflag,.qa-form-light-button-clearflags
+	background-image: url(images/icons/unflag.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-hide
+	background-image: url(images/icons/view.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-follow
+	background-image: url(images/icons/link.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-comment
+	background-image: url(images/icons/chat-alt-2.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-answer
+	background-image: url(images/icons/chat.png)
+	background-repeat: no-repeat
+	background-position: center
+	text-transform: capitalize
+
+.qa-form-light-button-reshow
+	background-image: url(images/icons/show.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-claim
+	background-image: url(images/icons/user-alt-2.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-delete
+	background-image: url(images/icons/trash-empty.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-approve
+	background-image: url(images/icons/check.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-reject
+	background-image: url(images/icons/cancel.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-close
+	background-image: url(images/icons/padlock-closed.png)
+	background-repeat: no-repeat
+	background-position: center
+
+.qa-form-light-button-reopen
+	background-image: url(images/icons/padlock-open.png)
+	background-repeat: no-repeat
+	background-position: center
+
+
+/* Standard form (basic version - buttons only) */
+.qa-form-basic-button
+	vertical-align: middle
+	margin: 4px 4px 8px 0
+
+/* --- [ best answer tick css ] --- */
+
+.qa-a-select-button
+	background: url(images/select-tick.png)
+	background-position: left center
+	background-repeat: no-repeat
+	border: 0
+	width: 40px
+	height: 31px
+	border-radius: 0
+
+	&:hover
+		background-position: right center
+
+.qa-a-unselect-button
+	background: url(images/select-tick.png)
+	background-position: right center
+	background-repeat: no-repeat
+	border: 0
+	width: 40px
+	height: 31px
+	border-radius: 0
+
+	&:hover
+		background-position: left center
+
+.qa-a-selected
+	background: url(images/select-tick.png)
+	background-position: right center
+	background-repeat: no-repeat
+	border: 0
+	width: 40px
+	height: 31px
+	border-radius: 0
+
+.qa-a-selected-text
+	font-size: $font_t
+	text-align: center
+	color: $par_green
+
+
+/* Comments */
+.qa-q-view-c-list,.qa-a-item-c-list
+	margin: em(20px, $font_m) 0 0
+
+.qa-c-list-item
+	border-top: 1px solid #d5d5d5
+	padding: em(20px, $font_m) 0
+	position: relative
+
+	&:last-child
+		padding-bottom: 0
+
+.qa-c-item-hidden
+	.qa-c-item-content
+		color: #bbb
+
+	.qa-c-item-link
+		color: #aaf
+
+	.qa-c-item-what
+		color: #ccc
+
+	.qa-c-item-meta
+		color: #ccc
+
+	.qa-c-item-who-title
+		color: #999
+
+	.qa-user-link
+		color: #999
+
+.qa-c-item-link
+	display: block
+	margin-bottom: 6px
+
+.qa-c-item-expand
+	display: block
+	color: #666
+	font-style: italic
+	margin: 2px 0
+
+.qa-c-item-content
+	display: block
+	margin-bottom: 6px
+	font-size: $font_m
+
+.qa-c-item-footer
+	position: relative
+	height: 1%
+
+/* height for IE6 */
+.qa-c-item-avatar
+	display: inline-block
+	vertical-align: middle
+	margin-right: 4px
+
+.qa-c-item-meta
+	display: inline-block
+	vertical-align: middle
+	font-size: $font_s
+	color: #666
+
+.qa-c-item-who-title
+	font-size: 80%
+	font-weight: 700
+	color: #6b0000
+
+.qa-c-item-who-points
+	display: none
+.qa-c-item-flags
+	color: red
+	font-weight: 700
+	padding-left: 3px
+
+.qa-c-item-buttons
+	display: block
+	position: static
+
+.qa-c-item-buttons
+	margin-top: em(20px, $font_m)
+
+	.qa-form-light-button
+		display: inline-block

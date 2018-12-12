@@ -198,13 +198,20 @@ function qa_favorite_categories_view($categories)
 			? qa_lang_html_sub('main/1_question', '1', '1')
 			: qa_lang_html_sub('main/x_questions', qa_format_number($category['qcount'], 0, true));
 		$cat_descr = strlen($category['content']) ? qa_html(' - ' . $category['content']) : '';
-
+		//loolex---start
+		/*
 		$nav_list_categories['nav'][$category['categoryid']] = array(
 			'label' => qa_html($category['title']),
 			'state' => 'open',
 			'favorited' => true,
 			'note' => ' - <a href="' . $cat_url . '">' . $cat_anchor . '</a>' . $cat_descr,
+		);*/
+		$nav_list_categories['nav'][$category['categoryid']] = array(
+			'state' => 'open',
+			'favorited' => true,
+			'note' => '<a href="' . $cat_url . '">' . $cat_anchor . '</a>' . $cat_descr,
 		);
+		//loolex---end
 	}
 
 	return $nav_list_categories;

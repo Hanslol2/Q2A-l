@@ -25,17 +25,22 @@ class qa_html_theme extends qa_html_theme_base {
     // updating html class for off canvance menu js
     function html()
     {
-        
+        session_start();
         $this->output(
                 '<HTML class="no-js">', '<!-- Powered by Question2Answer - http://www.question2answer.org/ -->'
         );
 
         $this->head();
+        //loolex---start
+		$pathToFile= dirname(QA_INCLUDE_DIR, 2);
         
-        $pathToFile= dirname(__DIR__, 3);
-        $templateContent = file_get_contents($pathToFile."/Templates/template.php");
-        $this->output_raw($templateContent);
+		
+		session_start();
+		$templateContent = file_get_contents($pathToFile."/Templates/template.php");
+        $templateContent = preg_replace('/(\<\?php echo\(\$token\); \?\>)/',$_SESSION['csrf_token'],$templateContent);
+		$this->output($templateContent);
         
+        //loolex---end
         $this->body();
 		
         $this->output(
@@ -67,19 +72,14 @@ class qa_html_theme extends qa_html_theme_base {
         // check whether heading and body font family is the same
         $get_fonts = ($google_heading == $google_body || $google_body == $google_heading) ? $google_body . ':300' : $google_heading . ':300|' . $google_heading . ':400|' . $google_body . ':300|' . $google_body . ':400';
 
-        $this->output('<link href="http://fonts.googleapis.com/css?family=' . $get_fonts . '" rel="stylesheet" type="text/css"/>');
-        
+        //$this->output('<link href="http://fonts.googleapis.com/css?family=' . $get_fonts . '" rel="stylesheet" type="text/css"/>');      
         qa_html_theme_base::head_css();
 
         // theme stylesheets
         $this->output('<LINK REL="stylesheet" TYPE="text/css" HREF="' . $this->rooturl . $this->theme_css() . '"/>');
         $this->output('<LINK REL="stylesheet" TYPE="text/css" HREF="' . $this->rooturl . $this->icons_css() . '"/>');
-        $this->output('<LINK REL="stylesheet" TYPE="text/css" HREF="' . $this->rooturl .
-                $this->color_css() . '"/>');
-		$this->output('<link rel="stylesheet" type="text/css" href="/Templates/template.css">');
-		$this->output('<link rel="shortcut icon" href="/Images/favicon.ico" type="image/png" />');
-		$this->output('<link rel="icon" href="/Images/favicon.ico" type="image/png" />');
-		
+        $this->output('<LINK REL="stylesheet" TYPE="text/css" HREF="' . $this->rooturl . $this->color_css() . '"/>');
+	
         // setting up fonts
         $this->font_css();
        
@@ -119,9 +119,7 @@ class qa_html_theme extends qa_html_theme_base {
         $this->output('<script src="' . $this->rooturl . 'js/modernizr.custom.js"></script>');
         $this->output('<script src="' . $this->rooturl . 'js/classie.js"></script>');
         $this->output('<script src="' . $this->rooturl . 'js/theme.js"></script>');
-        $this->output('<script src="/Resources/jquery.min.js"></script>');
-        $this->output('<script src="/Resources/jquery-ui.min.js"></script>');
-        $this->output('<script src="/Templates/template.js"></script>');
+
                 
     }
 
@@ -177,10 +175,10 @@ class qa_html_theme extends qa_html_theme_base {
 
     // top bar method
     function top_bar()
-    {   //-------------------
-        //------Loolex Change--------
-        //----------------------
+    {   
+        //loolex---start
         //$this->output('<i id="showLeftPush" class="sm-icon button icon-th-list"></i>');
+
         /*$this->logo();
 
         $this->output('</div>');
@@ -191,16 +189,24 @@ class qa_html_theme extends qa_html_theme_base {
         $this->output('</div><!-- qa-nav-group -->');
         */
         $pathToFile= dirname(__DIR__, 3);
-        $templateContentTopbar = file_get_contents($pathToFile."/Templates/template-topbar.php");
-        $this->output_raw($templateContentTopbar);
+        $templateContentTopbar = file_get_contents($pathToFile."/Templates/template-header.php");
+
+        $this->output('<header class="header header_rp">');
+        $this->output_raw($templateContentTopbar); 
+        //loolex---end
+        $this->output('</header>');
+        
     }
 
     // adding topbar and sidepane close icon for mobile
     function body_header() // adds login bar, user navigation and search at top of page in place of custom header content
     {
         $this->output('<div id="qa-top-bar"><div id="qa-topbar-group" style="width:100%;">');
+        
         $this->top_bar();
+        //loolex---start
         //$this->output('<DIV ID="sidepanelclose"><i class="icon-cancel close"></i></DIV>');
+        //loolex---end
         $this->output('</div></div>');
     }
 
@@ -218,8 +224,9 @@ class qa_html_theme extends qa_html_theme_base {
     function header() // removes user navigation and search from header and replaces with custom header content. Also opens new <div>s
     {
         $this->output('<div class="qa-header">');
-
-        //$this->logo();						
+        //loolex---start
+        //$this->logo();	
+        //loolex---end					
         $this->header_clear();
         $this->header_custom();
 
@@ -227,9 +234,9 @@ class qa_html_theme extends qa_html_theme_base {
 
         //$this->output('<div class="qa-main-shadow">', '');
         $this->output('<div class="qa-main-wrapper">', '');
-        $this->output('<DIV CLASS="sub-nav-top">');
+        //$this->output('<DIV CLASS="sub-nav-top">');
         $this->nav_main_sub();
-        $this->output('</DIV>');
+        //$this->output('</DIV>');
         $this->output('<div class="qa-layout-wrapper">', '');
         
        
@@ -252,10 +259,9 @@ class qa_html_theme extends qa_html_theme_base {
 
     // sidepanel user account details based on logged in
     function q2am_user_details()
-    {      //-----Loolex Change ----
-    //     deactivate whole function because the elements are being used in the drop down menu
+    {      
         // looged in user account
-        /*if (qa_is_logged_in()) {
+        if (qa_is_logged_in()) {
 
             $this->output('<h2>My Account</h2>', '<ul class="qa-widget-side q2am-nav-user-side-list">', '<li class="q2am-nav-user-side qa-user-info-item">');
 
@@ -287,7 +293,7 @@ class qa_html_theme extends qa_html_theme_base {
             }
 
             $this->output('</ul>');
-        }*/
+        }
     }
 
     function search_field($search)
@@ -303,37 +309,45 @@ class qa_html_theme extends qa_html_theme_base {
             $this->output('<DIV CLASS="qa-sidepanel">');
             //$this->output('<DIV ID="sidepanelclose"><i class="icon-cancel close"></i></DIV>');
 
-            $this->output('<DIV CLASS="qa-sidepanel-ask top">');
-            $this->q2am_ask_button();
+            //$this->output('<DIV CLASS="qa-sidepanel-ask top">');
+            //$this->q2am_ask_button();
             $this->output('</DIV>');
-
-            $this->search();
-
-            $this->q2am_user_details(); // cusstom method for sidepane navigation
+            
+            //loolex---start
+            //$this->search();		
+			//     deactivate whole function because the elements are being used in the drop down menu
+            //$this->q2am_user_details(); // cusstom method for sidepane navigation
+            //loolex---end
 
             $this->widgets('side', 'top');
             $this->sidebar();
             $this->widgets('side', 'high');
             $this->nav('cat', 1);
-            $this->widgets('side', 'low');
+            //$this->widgets('side', 'low');
             $this->output_raw(@$this->content['sidepanel']);
             //$this->feed();
             $this->widgets('side', 'bottom');
 
             $this->output('<DIV CLASS="qa-sidepanel-ask">');
+
+            //loolex---start
             //$this->q2am_feedback_button();
+            //loolex---end
+
             $this->output('</DIV>');
 
             $this->output('</DIV>', '');
 
             //$this->output('<DIV id="sidepanelpull"><span>' . (qa_is_logged_in() ? 'Account / ' : '' ) . 'Sidebar</span> <i id="sidepull-icon" class="icon-down-open-big right-side"></i></DIV>');
-
-            $this->output('<DIV CLASS="sub-nav-bottom">');
-            $this->nav_main_sub();
-            $this->output('</DIV>');
+            
+            //loolex---start
+            //$this->output('<DIV CLASS="sub-nav-bottom">');
+            //$this->nav_main_sub();
+            //$this->output('</DIV>');
+            //loolex---end
 
             $this->output('<DIV CLASS="qa-sidepanel-ask bottom">');
-            $this->q2am_ask_button();
+            //$this->q2am_ask_button();
             $this->output('</DIV>');
         }
     }
@@ -442,17 +456,16 @@ class qa_html_theme extends qa_html_theme_base {
         $this->q_view_follows($q_view);
         $this->q_view_closed($q_view);
         $this->post_tags($q_view, 'qa-q-view');
-
         $this->q_view_buttons($q_view);
         $this->c_list(@$q_view['c_list'], 'qa-q-view');
-
+        
         if (isset($q_view['main_form_tags'])) {
             $this->form_hidden_elements(@$q_view['buttons_form_hidden']);
             $this->output('</form>');
         }
-
+        
         $this->c_form(@$q_view['c_form']);
-
+        
         $this->output('</div> <!-- END qa-q-view-main -->');
     }
 
@@ -475,7 +488,6 @@ class qa_html_theme extends qa_html_theme_base {
 
         if ($a_item['hidden'] || $a_item['selected'])
             $this->output('</div>');
-
         $this->a_item_buttons($a_item);
 
         $this->c_list(@$a_item['c_list'], 'qa-a-item');
@@ -521,14 +533,17 @@ class qa_html_theme extends qa_html_theme_base {
     {
         //$this->output('<div class="qa-footer-bottom-group">');
         //qa_html_theme_base::footer();
-        //-------------------------------
-        //Loolex Change
-        //-------------------------------
+
         $this->output('<div id="footer-filler" ></div>');
+        
+        //loolex---start
         $pathToFile= dirname(__DIR__, 3);
         $templateContentFooter = file_get_contents($pathToFile."/Templates/template-footer.php");
         $this->output_raw($templateContentFooter);
+        //loolex---end
+
         //$this->output('</div> <!-- END footer-bottom-group -->', '');
+        
     }
 
     function attribution()

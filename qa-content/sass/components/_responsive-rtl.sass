@@ -1,0 +1,1528 @@
+/* --- [ responsive layout css ] --- */
+/* layout css */
+#qa-topbar-group,.qa-main-wrapper,.qa-header
+	margin: 0 auto
+
+#qa-topbar-group
+	padding: em(10px, $font_m) 0
+
+#sidepanelpull
+	display: none
+
+
++max-breakpoint(xs)
+
+	/* --- [ q-list-elements ] --- */
+	.qa-q-item-main
+		float: none !important
+		width: 100% !important
+		padding-left: 0 !important
+		position: relative
+
+	.qa-q-item-title
+		margin: 0 0 em(6px, $font_m) 0
+
+	.qa-q-item-stats
+		display: none
+
+	.qa-q-item-avatar
+		display: none
+
++max-breakpoint(sm)
+
+	/* --- [ all submit buttons ] --- */
+	.qa-form-tall-button-save,.qa-form-wide-button-save,.qa-form-wide-button-saverecalc,.qa-form-wide-button-change,.qa-form-wide-button-setbonus,.qa-form-tall-button-ask,.qa-form-tall-button-answer,.qa-form-tall-button-comment,.qa-form-tall-button,.qa-form-tall-button-reset,.qa-form-wide-button-reset,.qa-form-wide-button-showdefaults,.qa-form-basic-button,.qa-form-wide-button
+		width: 100%
+		margin: em(10px, $font_m) 0
+
+	/* --- [ qa-main ] --- */
+	.qa-layout-wrapper
+		margin: 0
+
+	/* --- [ q-list-elements ] --- */
+	.qa-q-item-main
+		float: right
+		width: 85% !important
+		padding-right: em(10px, $font_m) !important
+		position: relative
+
+	.qa-q-item-title
+		font-size: em(18px, $font_m)
+		margin-left: 0
+
+	.qa-q-item-stats
+		float: left
+		width: em(45px, $font_m)
+
+
+	/* vote box counter */
+	.qa-voting,.qa-a-count,.qa-view-count
+		background: #BFBFBF
+		color: $white
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: left
+		position: relative
+		margin: 0
+
+	.qa-netvote-count,.qa-a-count,.qa-view-count
+		display: block
+		text-align: center
+		border-top: 2px solid #A8A7A7
+
+	.qa-netvote-count-data,.qa-a-count-data,.qa-view-count-data
+		display: block
+		ovreflow: hidden
+		font-size: em(20px, $font_m)
+		font-weight: 300
+		margin-top: em(6px, $font_m)
+
+	.qa-netvote-count-pad,.qa-a-count-pad,.qa-view-count-pad
+		font-size: em(9px, $font_m)
+		line-height: normal
+
+	/* override view count box */
+	.qa-view-count
+		display: none
+		background: none !important
+		height: auto
+		border: none !important
+		color: $body_text_color !important
+		margin-top: em(5px, $font_m)
+
+	.qa-view-count-data		
+		display: inline
+		ovreflow: hidden
+		font-size: em(12px, $font_m)
+		font-weight: 700
+		margin-top: 0
+		line-height: em(14px, $font_m)		
+
+	.qa-view-count-pad
+		font-size: em(9px, $font_m)
+		line-height: normal
+
+	/* end */
+
+	.qa-voted-up-button
+		top: 0
+
+	.qa-voted-down-button
+		bottom: 0
+
+	.qa-vote-buttons
+		position: absolute
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: left
+
+	.qa-vote-one-button
+		position: absolute
+		left: 50%
+		margin-left: -7px
+
+	.qa-vote-first-button
+		position: absolute
+		left: 50%
+		top: 0
+		margin-left: -7px
+
+	.qa-vote-second-button
+		position: absolute
+		left: 50%
+		bottom: 0
+		margin-left: -7px
+
+	.qa-vote-up-button,.qa-vote-down-button,.qa-voted-up-button,.qa-voted-down-button,.qa-vote-up-disabled,.qa-vote-down-disabled
+		width: em(14px, $font_m)
+		height: em(14px, $font_m)
+		padding: 0 !important
+		z-index: 999
+
+
+	/* answer counter */
+	.qa-a-count
+		/*margin: 0 em(4px, $font_m)*/
+
+	/* admin section moderate, flag list css */
+	.qa-template-admin
+		.qa-q-item-stats
+			display: none
+
+		.qa-q-item-main
+			width: auto
+			float: none
+			padding-left: 0
+
+	/* q-list meta and tag */
+
+	/* ----------------------------------------------------------- */
+	/* --- [ question view css including answer and comment ] --- */
+	.qa-template-question 
+
+	.qa-part-q-view
+		+clearfix
+		padding-top: em(25px, $font_m)
+		position: relative
+
+		.qa-q-view	
+
+		.qa-q-view-stats
+			float: left
+
+			.qa-view-count
+				display: none
+
+			.qa-view-count-data		
+				display: inline
+				ovreflow: hidden
+				font-size: em(12px, $font_m)
+				font-weight: 700
+				margin-top: 0
+				line-height: em(14px, $font_m)		
+
+			.qa-view-count-pad
+				font-size: em(9px, $font_m)
+				line-height: normal
+
+		.qa-voting
+			background: none
+			border: 1px solid #ddd
+			color: $body_text_color
+			width: em(58px, $font_m)
+			
+			.qa-vote-buttons
+				width: em(58px, $font_m)
+
+			.qa-netvote-count
+				border: none
+				clear: right
+
+		
+		.qa-q-view-avatar
+			position: absolute
+			left: 0
+			top: em(25px, $font_m)
+
+		.qa-q-view-meta
+			font-size: $font_s
+			padding: em(10px, $font_m) 0 em(5px, $font_m) !important
+			border-bottom: 1px solid #eee
+			display: block
+			margin-bottom: em(20px, $font_m)
+			clear: right
+
+		.qa-q-view-buttons
+			position: static !important
+			margin-top: em(10px, $font_m)
+
+			.qa-form-light-button
+				display: inline-block
+				width: 24px
+				height: 24px
+				margin-right: em(5px, $font_m)
+
+		.qa-q-view-main
+			width: 100% !important
+			float: none !important
+			margin: 0 !important
+
+		.qa-q-view-content
+			min-height: em(130px, $font_m)
+
+		.qa-q-view-clear
+			+clearfix
+
+
+	/* answer only */
+	.qa-a-list
+		.qa-a-list-item 
+			+clearfix
+			padding-top: em(25px, $font_m)
+			margin-top: em(35px, $font_m)
+			position: relative
+
+			.qa-voting
+				background: none
+				border: 1px solid #ddd
+				color: $body_text_color
+				width: em(58px, $font_m)
+				
+				.qa-vote-buttons
+					width: em(58px, $font_m)
+
+				.qa-netvote-count
+					border: none
+					clear: right
+
+			.qa-a-item-avatar
+				position: absolute
+				right: 0
+				top: em(25px, $font_m)
+
+			.qa-a-item-avatar-meta
+				font-size: $font_s
+				padding: em(10px, $font_m) 0 em(5px, $font_m) !important
+				border-bottom: 1px solid #eee
+				display: block
+				margin-bottom: em(20px, $font_m)
+				clear: left
+
+			.qa-a-item-buttons
+				position: static !important
+				margin-top: em(10px, $font_m)
+
+				.qa-form-light-button
+					display: inline-block
+					width: 24px
+					height: 24px
+					margin-right: em(5px, $font_m)
+
+			.qa-a-item-main
+				width: 100% !important
+				float: none !important
+				margin-left: 0 !important
+
+				.qa-a-item-content
+					min-height: 120px
+
+			.qa-a-selection
+				position: absolute
+				left: 70px !important
+				top: 36px !important
+				width: em(58px, $font_m)
+
+			.qa-a-select-button,.qa-a-unselect-button,.qa-a-selected
+				margin-left: em(9px, $font_m)
+
+
+
+		.qa-a-list-item,.qa-a-item-clear
+			+clearfix
+
+	/* comment list css */
+	.qa-c-item-avatar-meta
+		font-size: $font_s
+		padding: 0 0 em(5px, $font_m)
+		border-bottom: 1px solid #eee
+		display: block
+		margin-bottom: em(20px, $font_m)
+
+	.qa-c-item-avatar
+		position: absolute
+		left: 0
+		top: em(23px, $font_m)
+
+
+/* --- [ < medium screen = small screen] --- */
++max-breakpoint(md)
+	
+	/* global */
+	.hide-for-sm
+		display: none
+
+	.show-for-sm
+		display: inherit
+
+
+	.sm-icon
+		font-size: em($font_xx, $font_m)
+		position: absolute
+		right: 0
+		top: em(3px, $font_m)	
+
+		&.button
+			color: $white_trans
+			cursor: pointer
+
+			&:hover, &.active
+				color: $white
+
+	#qa-topbar-group,.qa-main-wrapper
+		width: 100%
+
+	#qa-topbar-group
+		padding: em(10px, $font_m) em($font_xx + $font_m, $font_m)
+		position: relative
+
+	/* --- [ qa-sidepanel ] --- */
+	.qa-sidepanel,.qa-sidepanel-ask,.qa-main
+		padding: 0 em(10px, $font_m)
+
+	.qa-sidepanel-ask
+		&.top
+			display: none
+
+	#sidepanelpull
+		display: block
+		padding: em(10px, $font_m)
+		margin-bottom: em(20px, $font_m)
+		text-align: center
+		position: relative
+		cursor: pointer
+		+clearfix
+
+	#sidepanelclose
+		display: inline-block
+		position: absolute
+		top: 8px
+		left: 10px
+		z-index: 11
+		font-size: $font_m	
+		float: left
+		background: $red
+		color: $white_trans
+		border: 1px solid $red_border
+		padding: em(6px, $font_m) em(3px, $font_m)
+		border-radius: em(20px, $font_m)
+		cursor: pointer
+
+		&:active,&:focus,&:hover
+			color: $white
+			background: $red_dark
+			border-color: $red_border_dark
+			+box-shadow(0 0 5px 0 rgba(255,255,255,0.5))
+
+	.right-side
+		float: left
+		margin-top: em(5px, $font_m)
+
+
+	.qa-sidepanel
+		display: none
+		margin-top: em(20px, $font_m)
+
+
+	/* --- [ qa-main ] --- */
+	.qa-layout-wrapper
+		margin: 0
+
+	/* --- [ q-list-elements ] --- */
+
+	.qa-q-item-main
+		float: right
+		//width: 90%
+		width: 86% // reduced for iPhone 6*
+		padding-right: em(20px, $font_m)	
+		position: relative
+
+	.qa-q-item-stats
+		float: right
+		width: em(45px, $font_m)
+
+
+	/* vote box counter */
+	.qa-voting,.qa-a-count,.qa-view-count
+		background: #BFBFBF
+		color: $white
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: left
+		position: relative
+		margin: 0
+
+	.qa-netvote-count,.qa-a-count,.qa-view-count
+		display: block
+		text-align: center
+		border-top: 2px solid #A8A7A7
+
+	.qa-netvote-count-data,.qa-a-count-data,.qa-view-count-data
+		display: block
+		ovreflow: hidden
+		font-size: em(20px, $font_m)
+		font-weight: 300
+		margin-top: em(6px, $font_m)
+
+	.qa-netvote-count-pad,.qa-a-count-pad,.qa-view-count-pad
+		font-size: em(9px, $font_m)
+		line-height: normal
+
+	/* override view count box */
+	.qa-view-count
+		background: none !important
+		height: auto
+		border: none !important
+		color: $body_text_color !important
+		margin-top: em(5px, $font_m)
+
+	.qa-view-count-data		
+		display: inline
+		ovreflow: hidden
+		font-size: em(12px, $font_m)
+		font-weight: 700
+		margin-top: 0
+		line-height: em(14px, $font_m)		
+
+	.qa-view-count-pad
+		font-size: em(9px, $font_m)
+		line-height: normal
+
+	/* end */
+
+	.qa-voted-up-button
+		top: 0
+
+	.qa-voted-down-button
+		bottom: 0
+
+	.qa-vote-buttons
+		position: absolute
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: left
+
+	.qa-vote-one-button
+		position: absolute
+		left: 50%
+		margin-left: -7px
+
+	.qa-vote-first-button
+		position: absolute
+		left: 50%
+		top: 0
+		margin-left: -7px
+
+	.qa-vote-second-button
+		position: absolute
+		left: 50%
+		bottom: 0
+		margin-left: -7px
+
+	.qa-vote-up-button,.qa-vote-down-button,.qa-voted-up-button,.qa-voted-down-button,.qa-vote-up-disabled,.qa-vote-down-disabled
+		width: em(14px, $font_m)
+		height: em(14px, $font_m)
+		padding: 0 !important
+		z-index: 999
+
+
+	/* answer counter */
+	.qa-a-count
+		/*margin: 0 em(4px, $font_m)*/
+
+	/* admin section moderate, flag list css */
+	.qa-template-admin
+		.qa-q-item-stats
+			display: none
+
+		.qa-q-item-main
+			width: auto
+			float: none
+			padding-right: 0
+
+	/* q-list meta and tag */
+
+	/* --- [ footer section css ] --- */
+	.qa-footer-bottom-group
+		width: 100%
+		margin: em(50px, $font_m) auto 0
+		font-size: em(12px, $font_m)
+		padding: 0 em(10px, $font_m) em(30px, $font_m) em(10px, $font_m)
+		text-align: center
+
+		.qa-footer
+
+			.qa-nav-footer
+				padding: em(30px, $font_m) 0 0
+				border-top: 1px solid $default_h
+
+				ul
+					&.qa-nav-footer-list
+						
+						li
+							&.qa-nav-footer-item
+								display: inline-block
+
+								a
+									padding: 0 5px
+									border-right: 1px solid $default_h
+
+							&:last-child
+								a
+									border-right: none
+
+		.qa-copyatts
+			padding: em(30px, $font_m) 0 0
+			margin: em(30px, $font_m) 0 0
+			border-top: 1px solid $default_h
+
+
+	/* ----------------------------------------------------------- */
+	/* --- [ question view css including answer and comment ] --- */
+	.qa-template-question 
+
+	.qa-part-q-view
+		+clearfix
+		padding-top: em(25px, $font_m)
+		position: relative
+
+		.qa-q-view	
+
+		.qa-q-view-stats
+			float: right
+
+			.qa-view-count
+				background: none
+				height: auto
+				border: none
+				color: $body_text_color
+				margin-top: em(25px, $font_m)
+				width: em(58px, $font_m)
+				clear: right
+
+			.qa-view-count-data		
+				display: inline
+				ovreflow: hidden
+				font-size: em(12px, $font_m)
+				font-weight: 700
+				margin-top: 0
+				line-height: em(14px, $font_m)		
+
+			.qa-view-count-pad
+				font-size: em(9px, $font_m)
+				line-height: normal
+
+		.qa-voting
+			background: none
+			border: 1px solid #ddd
+			color: $body_text_color
+			width: em(58px, $font_m)
+			
+			.qa-vote-buttons
+				width: em(58px, $font_m)
+
+			.qa-netvote-count
+				border: none
+				clear: right
+
+
+		.qa-q-view-avatar
+			position: absolute
+			left: 0
+			top: em(25px, $font_m)
+
+		.qa-q-view-meta
+			font-size: $font_s
+			padding: 0 0 em(5px, $font_m)
+			border-bottom: 1px solid #eee
+			display: block
+			margin-bottom: em(20px, $font_m)
+
+		.qa-q-view-buttons
+			position: absolute
+			left: 0
+			top: em(100px, $font_m)
+			display: block
+			text-align: center
+
+		.qa-q-view-main
+			width: 76%
+			float: right
+			margin: 0 em(20px, $font_m) 0 0
+
+		.qa-q-view-content
+			min-height: em(130px, $font_m)
+
+		.qa-q-view-clear
+			+clearfix
+
+
+	/* answer only */
+	.qa-a-list
+		.qa-a-list-item 
+			+clearfix
+			padding-top: em(25px, $font_m)
+			margin-top: em(35px, $font_m)
+			position: relative
+
+			.qa-voting
+				background: none
+				border: 1px solid #ddd
+				color: $body_text_color
+				width: em(58px, $font_m)
+				
+				.qa-vote-buttons
+					width: em(58px, $font_m)
+
+				.qa-netvote-count
+					border: none
+					clear: right
+
+			.qa-a-item-avatar
+				position: absolute
+				left: 0
+				top: em(25px, $font_m)
+
+			.qa-a-item-avatar-meta
+				font-size: $font_s
+				padding: 0 0 em(5px, $font_m)
+				border-bottom: 1px solid #eee
+				display: block
+				margin-bottom: em(20px, $font_m)
+
+			.qa-a-item-buttons
+				position: absolute
+				left: 0
+				top: em(100px, $font_m)
+				display: block
+				text-align: center
+
+			.qa-a-item-main
+				width: 76%
+				float: right
+				margin-right: 20px
+
+				.qa-a-item-content
+					min-height: 120px
+
+			.qa-a-selection
+				position: absolute
+				left: 0
+				top: 110px
+				width: em(58px, $font_m)
+
+			.qa-a-select-button,.qa-a-unselect-button,.qa-a-selected
+				margin-left: em(9px, $font_m)
+
+
+
+		.qa-a-list-item,.qa-a-item-clear
+			+clearfix
+
+	/* comment list css */
+	.qa-c-item-avatar-meta
+		font-size: $font_s
+		padding: 0 0 em(5px, $font_m)
+		border-bottom: 1px solid #eee
+		display: block
+		margin-bottom: em(20px, $font_m)
+
+	.qa-c-item-avatar
+		position: absolute
+		left: 0
+		top: em(23px, $font_m)
+
+
+	/*-----[ q2a 1.6 new user profile page css ]----*/
+	.qa-template-user 
+
+		.qa-main
+			width: 100%
+			padding-right: 10px
+			-webkit-box-sizing: border-box
+			-moz-box-sizing: border-box
+			box-sizing: border-box
+
+		.qa-part-form-activity,.qa-part-message-list
+			float: none
+			width: 100%
+			padding-left: 0
+
+		.qa-part-form-activity
+			h2
+				margin-top: em(30px, $font_m)
+
+		.qa-part-form-profile 
+			float: none
+			width: 100%
+			min-height: 630px
+			padding-right: 0
+			border-right: none
+
+		.qa-part-form-activity,.qa-part-message-list,.qa-part-form-profile 
+			-webkit-box-sizing: border-box
+			-moz-box-sizing: border-box
+			box-sizing: border-box
+			overflow: hidden
+
+		.qa-part-message-list .qa-form-tall-text,.qa-part-form-profile .qa-form-wide-text 
+			width: 100% !important
+			-webkit-box-sizing: border-box
+			-moz-box-sizing: border-box
+			box-sizing: border-box
+
+
+		.qa-part-form-activity
+			td
+				.qa-uf-user-points,.qa-uf-user-q-posts,.qa-uf-user-a-posts,.qa-uf-user-c-posts,.qa-uf-user-q-votes,.qa-uf-user-a-votes,.qa-uf-user-upvotes,.qa-uf-user-downvotes,.qa-uf-user-upvoteds,.qa-uf-user-downvoteds 
+					font-size: 18px
+					color: #069
+					font-weight: 700
+
+		.qa-form-tall-image
+			text-align: center
+
+	/* Message list */
+	.qa-part-message-list
+		margin-top: em(30px, $font_m)
+
+	.qa-message-item 
+		margin: 0
+		padding: 12px
+		border-bottom: 2px dotted #ddd
+
+	.qa-message-content 
+		margin-bottom: 6px
+
+	.qa-message-avatar 
+		display: inline-block
+		vertical-align: middle
+		margin-right: 4px
+
+	.qa-message-meta 
+		display: inline-block
+		vertical-align: middle
+		font-size: 10px
+		color: #666
+
+	.qa-message-buttons 
+		display: inline-block
+		vertical-align: middle
+		margin-left: 12px
+
+		.qa-form-light-button 
+			padding: 0
+
+
+
+/* --- [ > medium screen = medium + large screen ] --- */
++min-breakpoint(md)
+	
+	/* global */
+	.hide-for-md
+		display: none
+
+	.show-for-md
+		display: inherit
+	
+	.sm-icon
+		display: none
+
+	#qa-topbar-group,.qa-main-wrapper,.qa-header
+		width: 100%
+		padding-left: em(10px, $font_m)
+		padding-right: em(10px, $font_m)
+
+	.qa-logo
+		float: right
+		margin: 0 0 0 em(10px, $font_m)
+
+	
+	/* --- [ qa-main ] --- */
+	.qa-layout-wrapper
+		margin: em(20px, $font_m) 0
+
+	/* --- [ q-list-elements ] --- */
+	.qa-q-item-stats
+		float: right
+		width: em(45px, $font_m)
+
+
+	/* vote box counter */
+	.qa-voting,.qa-a-count,.qa-view-count
+		background: #BFBFBF
+		color: $white
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: right
+		position: relative
+		margin: 0
+
+	.qa-netvote-count,.qa-a-count,.qa-view-count
+		display: block
+		text-align: center
+		border-top: 2px solid #A8A7A7
+
+	.qa-netvote-count-data,.qa-a-count-data,.qa-view-count-data
+		display: block
+		ovreflow: hidden
+		font-size: em(20px, $font_m)
+		font-weight: 300
+		margin-top: em(6px, $font_m)
+
+	.qa-netvote-count-pad,.qa-a-count-pad,.qa-view-count-pad
+		font-size: em(9px, $font_m)
+		line-height: normal
+
+	/* override view count box */
+	.qa-view-count
+		background: none
+		height: auto
+		border: none 
+		color: $body_text_color 
+		margin-top: em(5px, $font_m)
+
+	.qa-view-count-data		
+		display: inline
+		ovreflow: hidden
+		font-size: em(12px, $font_m)
+		font-weight: 700
+		margin-top: 0
+		line-height: em(14px, $font_m)		
+
+	.qa-view-count-pad
+		font-size: em(9px, $font_m)
+		line-height: normal
+
+	/* end */
+
+	.qa-voted-up-button
+		top: 0
+
+	.qa-voted-down-button
+		bottom: 0
+
+	.qa-vote-buttons
+		position: absolute
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: left
+
+	.qa-vote-one-button
+		position: absolute
+		left: 50%
+		margin-left: -7px
+
+	.qa-vote-first-button
+		position: absolute
+		left: 50%
+		top: 0
+		margin-left: -7px
+
+	.qa-vote-second-button
+		position: absolute
+		left: 50%
+		bottom: 0
+		margin-left: -7px
+
+	.qa-vote-up-button,.qa-vote-down-button,.qa-voted-up-button,.qa-voted-down-button,.qa-vote-up-disabled,.qa-vote-down-disabled
+		width: em(14px, $font_m)
+		height: em(14px, $font_m)
+		padding: 0 !important
+		z-index: 999
+
+
+	/* answer counter */
+	.qa-a-count
+		/*margin: 0 em(4px, $font_m)*/
+
+	/* admin section moderate, flag list css */
+	.qa-template-admin
+		.qa-q-item-stats
+			display: none
+
+		.qa-q-item-main
+			width: auto
+			float: none
+			padding-right: 0
+
+	/* q-list meta and tag */
+	
+	/* --- [ qa-sidepanel ] --- */
+	.qa-sidepanel-ask
+		&.bottom
+			display: none
+
+	/* --- [ footer section css ] --- */
+	.qa-footer-bottom-group
+		width: $main_wrapper_width
+		margin: em(50px, $font_m) auto 0
+		font-size: em(12px, $font_m)
+		padding: 0 0 em(30px, $font_m) 0
+
+		.qa-footer
+
+			.qa-nav-footer
+				padding: em(30px, $font_m) 0 0
+				border-top: 1px solid $default_h
+
+				ul
+					&.qa-nav-footer-list
+						
+						li
+							&.qa-nav-footer-item
+								display: inline-block
+
+								a
+									padding: 0 5px
+									border-right: 1px solid $default_h
+
+							&:last-child
+								a
+									border-right: none
+
+		.qa-copyatts
+			padding: em(30px, $font_m) 0 0
+			margin: em(30px, $font_m) 0 0
+			border-top: 1px solid $default_h
+			+clearfix
+
+			.qa-copyright
+				float: right
+
+			.qa-attribution
+				float: left
+
+	/* ----------------------------------------------------------- */
+	/* --- [ question view css including answer and comment ] --- */
+	.qa-template-question 
+
+	.qa-part-q-view
+		+clearfix
+		padding-top: em(25px, $font_m)
+		position: relative
+
+		.qa-q-view	
+
+		.qa-q-view-stats
+			float: right
+
+			.qa-view-count
+				background: none
+				height: auto
+				border: none
+				color: $body_text_color
+				margin-top: em(25px, $font_m)
+				width: em(58px, $font_m)
+				clear: right
+
+			.qa-view-count-data		
+				display: inline
+				ovreflow: hidden
+				font-size: em(12px, $font_m)
+				font-weight: 700
+				margin-top: 0
+				line-height: em(14px, $font_m)		
+
+			.qa-view-count-pad
+				font-size: em(9px, $font_m)
+				line-height: normal
+
+		.qa-voting
+			background: none
+			border: 1px solid #ddd
+			color: $body_text_color
+			width: em(58px, $font_m)
+			
+			.qa-vote-buttons
+				width: em(58px, $font_m)
+
+			.qa-netvote-count
+				border: none
+				clear: right
+
+
+		.qa-q-view-avatar
+			position: absolute
+			left: 0
+			top: em(25px, $font_m)
+
+		.qa-q-view-meta
+			font-size: $font_s
+			padding: 0 0 em(5px, $font_m)
+			border-bottom: 1px solid #eee
+			display: block
+			margin-bottom: em(20px, $font_m)
+
+		.qa-q-view-buttons
+			position: absolute
+			left: 0
+			top: em(100px, $font_m)
+			display: block
+			text-align: center
+
+		.qa-q-view-main
+			width: 76%
+			float: right
+			margin: 0 em(20px, $font_m) 0 0
+
+		.qa-q-view-content
+			min-height: em(130px, $font_m)
+
+		.qa-q-view-clear
+			+clearfix
+
+
+	/* answer only */
+	.qa-a-list
+		.qa-a-list-item 
+			+clearfix
+			padding-top: em(25px, $font_m)
+			margin-top: em(35px, $font_m)
+			position: relative
+
+			.qa-voting
+				background: none
+				border: 1px solid #ddd
+				color: $body_text_color
+				width: em(58px, $font_m)
+				
+				.qa-vote-buttons
+					width: em(58px, $font_m)
+
+				.qa-netvote-count
+					border: none
+					clear: right
+
+			.qa-a-item-avatar
+				position: absolute
+				left: 0
+				top: em(25px, $font_m)
+
+			.qa-a-item-avatar-meta
+				font-size: $font_s
+				padding: 0 0 em(5px, $font_m)
+				border-bottom: 1px solid #eee
+				display: block
+				margin-bottom: em(20px, $font_m)
+
+			.qa-a-item-buttons
+				position: absolute
+				left: 0
+				top: em(100px, $font_m)
+				display: block
+				text-align: center
+
+			.qa-a-item-main
+				width: 76%
+				float: right
+				margin-right: 20px
+
+				.qa-a-item-content
+					min-height: 120px
+
+			.qa-a-selection
+				position: absolute
+				right: 0
+				top: 110px
+				width: em(58px, $font_m)
+
+			.qa-a-select-button,.qa-a-unselect-button,.qa-a-selected
+				margin-right: em(9px, $font_m)
+
+		.qa-a-list-item,.qa-a-item-clear
+			+clearfix
+
+	/* comment list css */
+	.qa-c-item-avatar-meta
+		font-size: $font_s
+		padding: 0 0 em(5px, $font_m)
+		border-bottom: 1px solid #eee
+		display: block
+		margin-bottom: em(20px, $font_m)
+
+	.qa-c-item-avatar
+		position: absolute
+		left: 0
+		top: em(23px, $font_m)
+
+
+	/*-----[ q2a 1.6 new user profile page css ]----*/
+	.qa-template-user 
+
+		.qa-main
+			width: 100%
+			padding-right: 10px
+			-webkit-box-sizing: border-box
+			-moz-box-sizing: border-box
+			box-sizing: border-box
+
+		.qa-part-form-activity,.qa-part-message-list
+			float: right
+			width: 50%
+			padding-left: 10px
+
+		.qa-part-form-activity
+			h2
+				margin-top: 0
+
+		.qa-part-form-profile 
+			float: left
+			width: 50%
+			min-height: 630px
+			padding-right: 10px
+			border-right: 1px solid #ddd
+
+		.qa-part-form-activity,.qa-part-message-list,.qa-part-form-profile 
+			-webkit-box-sizing: border-box
+			-moz-box-sizing: border-box
+			box-sizing: border-box
+			overflow: hidden
+
+		.qa-part-message-list .qa-form-tall-text,.qa-part-form-profile .qa-form-wide-text 
+			width: 100% !important
+			-webkit-box-sizing: border-box
+			-moz-box-sizing: border-box
+			box-sizing: border-box
+
+
+		.qa-part-form-activity
+			td
+				.qa-uf-user-points,.qa-uf-user-q-posts,.qa-uf-user-a-posts,.qa-uf-user-c-posts,.qa-uf-user-q-votes,.qa-uf-user-a-votes,.qa-uf-user-upvotes,.qa-uf-user-downvotes,.qa-uf-user-upvoteds,.qa-uf-user-downvoteds 
+					font-size: 18px
+					color: #069
+					font-weight: 700
+
+		.qa-form-tall-image
+			text-align: center
+
+	/* Message list */
+	.qa-part-message-list
+		margin-top: em(30px, $font_m)
+		
+	.qa-message-item 
+		margin: 0
+		padding: 12px
+		border-bottom: 2px dotted #ddd
+
+	.qa-message-content 
+		margin-bottom: 6px
+
+	.qa-message-avatar 
+		display: inline-block
+		vertical-align: middle
+		margin-right: 4px
+
+	.qa-message-meta 
+		display: inline-block
+		vertical-align: middle
+		font-size: 10px
+		color: #666
+
+	.qa-message-buttons 
+		display: inline-block
+		vertical-align: middle
+		margin-left: 12px
+
+		.qa-form-light-button 
+			padding: 0
+
+
+
+
+
+/* --- [ > medium screen and < large screen ] --- */
++min-max-breakpoint(md)
+
+	/* --- [ qa-main ] --- */
+
+	.qa-main
+		width: 70%
+		clear: right
+		float: right
+
+	/* --- [ q-list-elements ] --- */
+	.qa-q-item-main
+		float: right
+		width: 91%
+		padding-right: em(20px, $font_m)
+		position: relative
+	
+	/* --- [ qa-sidepanel ] --- */
+	.qa-sidepanel,.qa-sidepanel-ask,.qa-main
+		padding: 0
+
+	.qa-sidepanel		
+		width: 30%
+		float: left
+		padding-left: em(20px, $font_m)
+
+	/* --- [ footer section css ] --- */
+	.qa-footer-bottom-group
+		width: 100%
+		padding: 0 em(10px, $font_m) em(30px, $font_m) em(10px, $font_m)
+
+
+
++min-breakpoint(lg)
+
+	/* global */
+	.hide-for-lg
+		display: none
+
+	.show-for-lg
+		display: inherit
+
+	#qa-topbar-group,.qa-main-wrapper,.qa-header
+		width: em($main_wrapper_width, $font_m)
+
+	#qa-topbar-group,.qa-main-wrapper,.qa-header
+		padding-left: 0
+		padding-right: 0
+
+	/* --- [ qa-main ] --- */
+
+	.qa-main
+		width: $qa_main
+		clear: right
+		float: right
+
+
+	/* --- [ q-list-elements ] --- */
+
+	.qa-q-item-main
+		float: right
+		width: em(585px, $font_m)
+		padding-right: em(20px, $font_m)
+		position: relative
+
+	.qa-q-item-stats
+		float: right
+		width: em(143px, $font_m)
+
+
+	/* vote box counter */
+	.qa-voting,.qa-a-count,.qa-view-count
+		background: #BFBFBF
+		color: $white
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: right
+		position: relative
+		margin: 0
+
+	.qa-view-count
+		background: #BFBFBF
+		color: #fff
+
+	.qa-netvote-count,.qa-a-count,.qa-view-count
+		display: block
+		text-align: center
+		border-top: 2px solid #A8A7A7
+
+	.qa-netvote-count-data,.qa-a-count-data,.qa-view-count-data
+		display: block
+		ovreflow: hidden
+		font-size: em(20px, $font_m)
+		font-weight: 300
+		margin-top: em(6px, $font_m)
+		line-height: inherit
+
+	.qa-netvote-count-pad,.qa-a-count-pad,.qa-view-count-pad
+		font-size: em(9px, $font_m)
+		line-height: normal
+
+	.qa-voted-up-button
+		top: -15px
+
+	.qa-voted-down-button
+		bottom: -15px
+
+	.qa-vote-buttons
+		position: absolute
+		width: em(45px, $font_m)
+		height: em(58px, $font_m)
+		float: left
+
+	.qa-vote-one-button
+		position: absolute
+		left: 50%
+		margin-left: -7px
+
+	.qa-vote-first-button
+		position: absolute
+		left: 50%
+		top: -15px
+		margin-left: -7px
+
+	.qa-vote-second-button
+		position: absolute
+		left: 50%
+		bottom: -15px
+		margin-left: -7px
+
+	.qa-vote-up-button,.qa-vote-down-button,.qa-voted-up-button,.qa-voted-down-button,.qa-vote-up-disabled,.qa-vote-down-disabled
+		width: em(14px, $font_m)
+		height: em(14px, $font_m)
+		padding: 0 !important
+		z-index: 999
+
+
+	/* answer counter */
+	.qa-a-count
+		margin: 0 em(4px, $font_m)
+
+	
+	/* admin section moderate, flag list css */
+	.qa-template-admin
+		.qa-q-item-stats
+			display: none
+
+		.qa-q-item-main
+			width: auto
+			float: none
+			padding-left: 0
+
+	/* q-list meta and tag */
+
+
+
+	/* --- [ qa-sidepanel ] --- */
+	.qa-sidepanel
+		width: $side_panel
+		float: left
+		padding-right: em(20px, $font_m)
+
+
+
+
+
+	/* ----------------------------------------------------------- */
+	/* --- [ question view css including answer and comment ] --- */
+	.qa-template-question 
+
+	.qa-part-q-view
+		+clearfix
+		padding-top: em(25px, $font_m)
+		position: relative
+
+		.qa-q-view	
+
+		.qa-q-view-stats
+			float: right
+
+			.qa-view-count
+				background: none
+				height: auto
+				border: none
+				color: $body_text_color
+				margin-top: em(25px, $font_m)
+				width: em(58px, $font_m)
+				clear: right
+
+			.qa-view-count-data		
+				display: inline
+				ovreflow: hidden
+				font-size: em(12px, $font_m)
+				font-weight: 700
+				margin-top: 0
+				line-height: em(14px, $font_m)		
+
+			.qa-view-count-pad
+				font-size: em(9px, $font_m)
+				line-height: normal
+
+		.qa-voting
+			background: none
+			border: 1px solid #ddd
+			color: $body_text_color
+			width: em(58px, $font_m)
+			
+			.qa-vote-buttons
+				width: em(58px, $font_m)
+
+			.qa-netvote-count
+				border: none
+				clear: right
+
+
+		.qa-q-view-avatar
+			position: absolute
+			left: 0
+			top: em(25px, $font_m)
+
+		.qa-q-view-meta
+			font-size: $font_s
+			padding: 0 0 em(5px, $font_m)
+			border-bottom: 1px solid #eee
+			display: block
+			margin-bottom: em(20px, $font_m)
+
+		.qa-q-view-buttons
+			position: absolute
+			left: 0
+			top: em(100px, $font_m)
+			display: block
+			text-align: center
+
+		.qa-q-view-main
+			width: 76%
+			float: right
+			margin: 0 em(20px, $font_m) 0 0
+
+		.qa-q-view-content
+			min-height: em(130px, $font_m)
+
+		.qa-q-view-clear
+			+clearfix
+
+
+	/* answer only */
+	.qa-a-list
+		.qa-a-list-item 
+			+clearfix
+			padding-top: em(25px, $font_m)
+			margin-top: em(35px, $font_m)
+			position: relative
+
+			.qa-voting
+				background: none
+				border: 1px solid #ddd
+				color: $body_text_color
+				width: em(58px, $font_m)
+				
+				.qa-vote-buttons
+					width: em(58px, $font_m)
+
+				.qa-netvote-count
+					border: none
+					clear: right
+
+			.qa-a-item-avatar
+				position: absolute
+				left: 0
+				top: em(25px, $font_m)
+
+			.qa-a-item-avatar-meta
+				font-size: $font_s
+				padding: 0 0 em(5px, $font_m)
+				border-bottom: 1px solid #eee
+				display: block
+				margin-bottom: em(20px, $font_m)
+
+			.qa-a-item-buttons
+				position: absolute
+				left: 0
+				top: em(100px, $font_m)
+				display: block
+				text-align: center
+
+			.qa-a-item-main
+				width: 76%
+				float: right
+				margin-right: 20px
+
+				.qa-a-item-content
+					min-height: 120px
+
+			.qa-a-selection
+				position: absolute
+				right: 0
+				top: 110px
+				width: em(58px, $font_m)
+
+			.qa-a-select-button,.qa-a-unselect-button,.qa-a-selected
+				margin-left: em(9px, $font_m)
+
+
+
+		.qa-a-list-item,.qa-a-item-clear
+			+clearfix
+
+	/* comment list css */
+	.qa-c-item-avatar-meta
+		font-size: $font_s
+		padding: 0 0 em(5px, $font_m)
+		border-bottom: 1px solid #eee
+		display: block
+		margin-bottom: em(20px, $font_m)
+
+	.qa-c-item-avatar
+		position: absolute
+		left: 0
+		top: em(23px, $font_m)
+
+
+/* --- [ > IE specific medium screen and < large screen ] --- */
++min-max-breakpoint-ie(md)
+	.qa-sidepanel
+		width: 225px !important
